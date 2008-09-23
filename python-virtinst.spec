@@ -47,21 +47,24 @@ rm -rf $RPM_BUILD_ROOT
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 %py_postclean
 
+%find_lang %{appname}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{appname}.lang
 %defattr(644,root,root,755)
 %doc README COPYING AUTHORS ChangeLog NEWS doc/image.rng doc/example1.xml
-%attr(755,root,root) %{_sbindir}/virt-install
 %attr(755,root,root) %{_bindir}/virt-install
 %attr(755,root,root) %{_bindir}/virt-clone
 %attr(755,root,root) %{_bindir}/virt-image
 %attr(755,root,root) %{_bindir}/virt-pack
 %attr(755,root,root) %{_bindir}/virt-convert
-%{py_sitedir}/virtconv/*
-%{py_sitedir}/*.py[co]
-%attr(755,root,root) %{py_sitedir}/*.so
+%{py_sitescriptdir}/virtconv/*.py[co]
+%{py_sitescriptdir}/virtinst/*.py[co]
+%{py_sitescriptdir}/virtconv/parsers/*.py[co]
 %if "%{py_ver}" > "2.4"
-%{py_sitedir}/-%{appname}-*.egg-info
+%{py_sitescriptdir}/%{appname}-*.egg-info
 %endif
+%{_mandir}/man1/*
+%{_mandir}/man5/*
