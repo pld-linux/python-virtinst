@@ -60,9 +60,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/virt-image
 %attr(755,root,root) %{_bindir}/virt-pack
 %attr(755,root,root) %{_bindir}/virt-convert
+%dir %{py_sitescriptdir}/virtconv
 %{py_sitescriptdir}/virtconv/*.py[co]
-%{py_sitescriptdir}/virtinst/*.py[co]
+%dir %{py_sitescriptdir}/virtconv/parsers
 %{py_sitescriptdir}/virtconv/parsers/*.py[co]
+%dir %{py_sitescriptdir}/virtinst
+%{py_sitescriptdir}/virtinst/*.py[co]
 %if "%{py_ver}" > "2.4"
 %{py_sitescriptdir}/%{appname}-*.egg-info
 %endif
