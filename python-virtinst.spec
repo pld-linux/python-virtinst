@@ -6,7 +6,7 @@ Name:		python-%{appname}
 Version:	0.400.0
 Release:	0.1
 License:	GPL v2
-Group:		Development/Languages/Python
+Group:		Libraries/Python
 Source0:	http://virt-manager.org/download/sources/%{appname}/%{appname}-%{version}.tar.gz
 # Source0-md5:	484792dfe05abc75082d44fc51b811f3
 URL:		http://virt-manager.org
