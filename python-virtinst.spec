@@ -3,12 +3,12 @@
 
 Summary:	Python modules and utilities for installing virtual machines
 Name:		python-%{appname}
-Version:	0.500.1
+Version:	0.500.3
 Release:	1
 License:	GPL v2
 Group:		Libraries/Python
 Source0:	http://virt-manager.org/download/sources/%{appname}/%{appname}-%{version}.tar.gz
-# Source0-md5:	f87ccfe2b77823c9e06d32e8b6f20424
+# Source0-md5:	3af83445c645ea7e83c47069087ba23c
 URL:		http://virt-manager.org
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
