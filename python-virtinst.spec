@@ -1,6 +1,4 @@
-
 %define	appname	virtinst
-
 Summary:	Python modules and utilities for installing virtual machines
 Name:		python-%{appname}
 Version:	0.500.3
@@ -9,16 +7,14 @@ License:	GPL v2
 Group:		Libraries/Python
 Source0:	http://virt-manager.org/download/sources/%{appname}/%{appname}-%{version}.tar.gz
 # Source0-md5:	3af83445c645ea7e83c47069087ba23c
-URL:		http://virt-manager.org
-BuildRequires:	python-devel
-BuildRequires:	rpm-pythonprov
-# if py_postclean is used
+URL:		http://virt-manager.org/
 BuildRequires:	gettext
+BuildRequires:	python-devel
 BuildRequires:	python-libvirt >= 0.4.5
 BuildRequires:	python-libxml2
 BuildRequires:	python-urlgrabber
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
-#%pyrequires_eq	python-libs
 %pyrequires_eq	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
