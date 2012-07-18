@@ -1,12 +1,12 @@
 %define	appname	virtinst
 Summary:	Python modules and utilities for installing virtual machines
 Name:		python-%{appname}
-Version:	0.600.1
+Version:	0.600.2
 Release:	1
 License:	GPL v2
 Group:		Libraries/Python
 Source0:	http://virt-manager.org/download/sources/%{appname}/%{appname}-%{version}.tar.gz
-# Source0-md5:	7b25d24545c556945689e3191442867e
+# Source0-md5:	32902986192d055760632f874a4ab81f
 URL:		http://virt-manager.org/
 BuildRequires:	gettext
 BuildRequires:	python-devel
