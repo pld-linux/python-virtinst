@@ -17,8 +17,8 @@ BuildRequires:	rpmbuild(macros) >= 1.219
 Requires:	python-libvirt >= 0.4.5
 Requires:	python-libxml2
 Requires:	python-urlgrabber
-Requires:	virt-viewer >= 0.0.1
-#python-[lib]selinux ?
+Suggests:	python-selinux
+Suggests:	virt-viewer >= 0.0.1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
