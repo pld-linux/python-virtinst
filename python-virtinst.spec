@@ -1,21 +1,24 @@
 %define	appname	virtinst
 Summary:	Python modules and utilities for installing virtual machines
+Summary(pl.UTF-8):	Moduły Pythona i narzędzia do instalowania maszyn wirtualnych
 Name:		python-%{appname}
-Version:	0.600.2
+Version:	0.600.3
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		Libraries/Python
-Source0:	http://virt-manager.org/download/sources/%{appname}/%{appname}-%{version}.tar.gz
-# Source0-md5:	32902986192d055760632f874a4ab81f
+Source0:	http://virt-manager.org/download/sources/virtinst/%{appname}-%{version}.tar.gz
+# Source0-md5:	13c06b16c0f9fa23e7cb2534950b4575
 URL:		http://virt-manager.org/
-BuildRequires:	gettext
-BuildRequires:	python-devel
-BuildRequires:	python-libvirt >= 0.4.5
-BuildRequires:	python-libxml2
-BuildRequires:	python-urlgrabber
+BuildRequires:	gettext-devel
+BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq	python-modules
+Requires:	python-libvirt >= 0.4.5
+Requires:	python-libxml2
+Requires:	python-urlgrabber
+Requires:	virt-viewer >= 0.0.1
+#python-[lib]selinux ?
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,11 +29,17 @@ machines. Package includes several command line utilities, including
 virt-install (build and install new VMs) and virt-clone (clone an
 existing virtual machine).
 
+%description -l pl.UTF-8
+virtinst to moduł pomagający przy tworzeniu i instalowaniu maszyn
+wirtualnych opartych na libvirt. Obecnie obsługiwane są maszyny KVM,
+QEmu i Xen. Pakiet zawiera kilka działających z linii poleceń
+skryptów, w tym virt-install (tworzący i instalujący nowe VM-y) oraz
+virt-clone (klonujący istniejącą maszynę wirtualną).
+
 %prep
 %setup -q -n %{appname}-%{version}
 
 %build
-export CFLAGS="%{rpmcflags}"
 %{__python} setup.py build
 
 %install
@@ -50,11 +59,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{appname}.lang
 %defattr(644,root,root,755)
-%doc README COPYING AUTHORS ChangeLog NEWS doc/image.rng doc/example1.xml
-%attr(755,root,root) %{_bindir}/virt-install
+%doc AUTHORS ChangeLog NEWS README doc/image.rng doc/example1.xml
 %attr(755,root,root) %{_bindir}/virt-clone
-%attr(755,root,root) %{_bindir}/virt-image
 %attr(755,root,root) %{_bindir}/virt-convert
+%attr(755,root,root) %{_bindir}/virt-image
+%attr(755,root,root) %{_bindir}/virt-install
 %dir %{py_sitescriptdir}/virtconv
 %{py_sitescriptdir}/virtconv/*.py[co]
 %dir %{py_sitescriptdir}/virtconv/parsers
@@ -62,7 +71,10 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitescriptdir}/virtinst
 %{py_sitescriptdir}/virtinst/*.py[co]
 %if "%{py_ver}" > "2.4"
-%{py_sitescriptdir}/%{appname}-*.egg-info
+%{py_sitescriptdir}/%{appname}-%{version}-py*.egg-info
 %endif
-%{_mandir}/man1/*
-%{_mandir}/man5/*
+%{_mandir}/man1/virt-clone.1*
+%{_mandir}/man1/virt-convert.1*
+%{_mandir}/man1/virt-image.1*
+%{_mandir}/man1/virt-install.1*
+%{_mandir}/man5/virt-image.5*
