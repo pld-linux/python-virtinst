@@ -2,12 +2,12 @@
 Summary:	Python modules and utilities for installing virtual machines
 Summary(pl.UTF-8):	Moduły Pythona i narzędzia do instalowania maszyn wirtualnych
 Name:		python-%{appname}
-Version:	0.600.3
+Version:	0.600.4
 Release:	1
 License:	GPL v2+
 Group:		Libraries/Python
 Source0:	http://virt-manager.org/download/sources/virtinst/%{appname}-%{version}.tar.gz
-# Source0-md5:	13c06b16c0f9fa23e7cb2534950b4575
+# Source0-md5:	0be36b08bb8b61eb9d75f0885eacc173
 URL:		http://virt-manager.org/
 BuildRequires:	gettext-devel
 BuildRequires:	python-devel >= 1:2.4
