@@ -10,7 +10,7 @@ Group:		Libraries/Python
 Source0:	http://virt-manager.org/download/sources/virtinst/%{appname}-%{version}.tar.gz
 # Source0-md5:	0be36b08bb8b61eb9d75f0885eacc173
 URL:		http://virt-manager.org/
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
