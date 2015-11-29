@@ -13,7 +13,7 @@ URL:		http://virt-manager.org/
 BuildRequires:	gettext-tools
 BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 %pyrequires_eq	python-modules
 Requires:	python-libvirt >= 0.4.5
 Requires:	python-libxml2
